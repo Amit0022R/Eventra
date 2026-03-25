@@ -3,6 +3,8 @@ import { Schibsted_Grotesk, Martian_Mono, Geist } from "next/font/google";
 import "./globals.css";
 import BackgroundEffects from "@/components/BackgroundEffects";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import { PHProvider } from "./providers";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -40,14 +42,14 @@ export default function RootLayout({
     )}
   >
     <body className="min-h-full flex flex-col relative">
-      
+      <PHProvider>
     <BackgroundEffects />
-    
+    <Navbar />
       {/* Main Content */}
       <main className="flex-1">
         {children}
       </main>
-
+      </PHProvider>
     </body>
   </html>
 );
